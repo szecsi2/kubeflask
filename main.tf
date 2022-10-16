@@ -31,6 +31,22 @@ resource "helm_release" "redis" {
     name  = "replica.replicaCount"
     value = "2"
   }
+
+  set {
+    name = "volumePermissions.enabled" 
+    value = "true" 
+  }
+
+  set {
+    name  = "persistence.storageClass"
+    value = "nfs-client"
+  }
+
+  set {
+    name  = "redis.replicas.persistence.storageClass"
+    value = "nfs-client"
+  }
+
 }
 
 
