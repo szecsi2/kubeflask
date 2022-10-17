@@ -1,0 +1,18 @@
+app:
+  project: deploy-flask
+  tier: flask-application
+
+image:
+  repository: kubeflask
+  tag: latest
+
+deployments: 
+  containerName: flask-app
+  containerPort: 5000
+  imagePullPolicy: Never
+  replicas: 1
+
+service:
+  type: LoadBalancer
+  port: 5000         
+  targetPort: 5000

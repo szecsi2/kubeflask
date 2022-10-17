@@ -3,10 +3,12 @@ resource "kubernetes_namespace" "minikubenamespace" {
         name = "minikubenamespace"
   }
 }
-resource "helm_release" "local" {
-  name          = "app"
-  chart         = "./app"
+
+resource "helm_release" "flask" {
+  name          = "deploy-flask"
+  chart         = "./deploy-flask"
   namespace     = "minikubenamespace"
+  wait          = false
 }
 
 resource "helm_release" "redis" {

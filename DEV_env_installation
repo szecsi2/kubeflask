@@ -20,3 +20,9 @@ $ chmod 700 get_helm.sh
 $ ./get_helm.sh
 
 export KUBE_CONFIG_PATH=~/.kube/config
+
+Setup minikube to use local Docker images:
+Set the environment variables with eval $(minikube docker-env)
+Build the image with the Docker daemon of Minikube (eg docker build -t my-image .)
+Set the image in the pod spec like the build tag (eg my-image)
+Set the imagePullPolicy to Never, otherwise Kubernetes will try to download the image.
