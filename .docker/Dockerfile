@@ -2,6 +2,10 @@ FROM python:3.7
 
 WORKDIR /opt/app
 
+ARG GIT_SHA
+
+ENV GIT_SHA=${GIT_SHA}
+
 COPY . .
 
 RUN pip install --no-cache-dir -r requirements.txt

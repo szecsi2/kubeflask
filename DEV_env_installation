@@ -26,3 +26,9 @@ Set the environment variables with eval $(minikube docker-env)
 Build the image with the Docker daemon of Minikube (eg docker build -t my-image .)
 Set the image in the pod spec like the build tag (eg my-image)
 Set the imagePullPolicy to Never, otherwise Kubernetes will try to download the image.
+
+When terraform timeout with flask app deployment. Workaround for this use case is to add wait = false to the "helm_release"
+
+How to add git commit tot the container:
+export GIT_SHA=$(git rev-parse --short HEAD)
+docker build --build-arg "GIT_SHA=${GIT_SHA}" --tag kubeflask .

@@ -1,4 +1,10 @@
 from flask import Flask
+import os
+
+#import subprocess
+#//Only work locally
+#def get_git_revision_short_hash() -> str:
+#    return subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD']).decode('ascii').strip()
 
 app = Flask(__name__)
 
@@ -20,8 +26,8 @@ def counter():
 
 @app.route("/version")
 def version():
-    return "git commit hash"
- 
-
-if __name__ == "__app__":
+    #Only work locally
+    #return get_git_revision_short_hash() 
+    return os.environ.get("GIT_SHA")
+if __name__ == "__main__":
     app.run(debug=True)
