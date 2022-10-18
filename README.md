@@ -1,7 +1,7 @@
-# kubeflask
+<h2># kubeflask</h2>
 
 
-Install Minikube:
+<p>Install Minikube:</p>
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 sudo install minikube-linux-amd64 /usr/local/bin/minikube
 minikube start
@@ -36,6 +36,13 @@ Run terraform in the project root with terraform apply. It will create the app d
 How to add git commit tot the container:
 export GIT_SHA=$(git rev-parse --short HEAD)
 docker build --build-arg "GIT_SHA=${GIT_SHA}" --tag kubeflask .
+
+![image](https://user-images.githubusercontent.com/43659121/196551425-79788159-dbd5-4a01-9909-c246912d842d.png)
+![image](https://user-images.githubusercontent.com/43659121/196551504-1a2ad5c5-8f21-47cd-b202-4d5ba12e9c5c.png)
+![image](https://user-images.githubusercontent.com/43659121/196551587-5ec76232-cfb3-427b-9484-0a3d93d35c2b.png)
+![image](https://user-images.githubusercontent.com/43659121/196551632-d482eb75-a8e3-4478-bafa-d28914a92c47.png)
+![image](https://user-images.githubusercontent.com/43659121/196551680-0d22550d-aca8-408f-8ab2-bf0c775e1a63.png)
+
 
 Monitoring:
 Run terraform apply in ./monitoring it will create a new namspace called monitoring
