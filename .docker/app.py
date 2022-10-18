@@ -1,5 +1,7 @@
 from flask import Flask
 import os
+import time
+import redis
 
 #import subprocess
 #//Only work locally
@@ -7,6 +9,7 @@ import os
 #    return subprocess.check_output(['git', 'rev-parse', '--short', 'HEAD']).decode('ascii').strip()
 
 app = Flask(__name__)
+cache = redis.Redis(host='redis-master', port=6379)
 
 @app.route("/")
 def home():
@@ -18,11 +21,13 @@ def health():
 
 @app.route("/alert")
 def alert():
-    return "increment the counter in redis"
-
+    cache.incr('hits')
+    return "alert"
+    
 @app.route("/counter")
 def counter():
-    return "print the value of the counter"
+    count = cache.get('hits')
+    return count
 
 @app.route("/version")
 def version():
