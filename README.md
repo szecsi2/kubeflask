@@ -29,8 +29,8 @@ export KUBE_CONFIG_PATH=~/.kube/config
 <h3>Setup minikube to use local Docker images</h3>
 
 - Set the environment variables with eval $(minikube docker-env)
-- Build the image with the Docker daemon of Minikube (eg docker build -t my-image .)
-- Set the image in the pod spec like the build tag (eg my-image)
+- Build the image with the Docker daemon of Minikube (eg docker build --build-arg "GIT_SHA=${GIT_SHA}" --tag kubeflask .docker)
+- Set the image in the pod spec like the build tag (eg kubeflask)
 - Set the imagePullPolicy to Never, otherwise Kubernetes will try to download the image.
 - When terraform timeout with flask app deployment. Workaround for this use case is to add wait = false to the "helm_release"
  
@@ -39,11 +39,11 @@ export KUBE_CONFIG_PATH=~/.kube/config
 ![image](https://user-images.githubusercontent.com/43659121/196553892-1f22439a-bf13-4571-9620-94ed20b3810c.png)
 
 
-<h3>How to add git commit tot the container</h3>
+<h3>How to add git commit to the container</h3>
  
  ``` 
   export GIT_SHA=$(git rev-parse --short HEAD)
-  docker build --build-arg "GIT_SHA=${GIT_SHA}" --tag kubeflask .
+  docker build --build-arg "GIT_SHA=${GIT_SHA}" --tag kubeflask .docker
 ```
 
 The application and it's container is located in .docker folder. 
