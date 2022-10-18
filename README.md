@@ -46,6 +46,9 @@ export KUBE_CONFIG_PATH=~/.kube/config
   docker build --build-arg "GIT_SHA=${GIT_SHA}" --tag kubeflask .
 ```
 
+The application and it's container is located in .docker folder. 
+
+
 ![image](https://user-images.githubusercontent.com/43659121/196551425-79788159-dbd5-4a01-9909-c246912d842d.png)
 ![image](https://user-images.githubusercontent.com/43659121/196551504-1a2ad5c5-8f21-47cd-b202-4d5ba12e9c5c.png)
 ![image](https://user-images.githubusercontent.com/43659121/196551587-5ec76232-cfb3-427b-9484-0a3d93d35c2b.png)
