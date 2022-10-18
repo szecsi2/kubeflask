@@ -1,6 +1,6 @@
 <h2># kubeflask</h2>
 
-<p>Install Minikube</p>
+<h3>Install Minikube</h3>
 
 ```
 curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
@@ -17,7 +17,7 @@ kubectl get po -A
 minikube dashboard 
 ```
 
-<p>Installing HELM</p>
+<h3>Installing HELM</h3>
 
 ```   
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
@@ -26,17 +26,20 @@ chmod 700 get_helm.sh
 export KUBE_CONFIG_PATH=~/.kube/config
 ```
 
-<p>Setup minikube to use local Docker images</p>
-  Set the environment variables with eval $(minikube docker-env)
-  Build the image with the Docker daemon of Minikube (eg docker build -t my-image .)
-  Set the image in the pod spec like the build tag (eg my-image)
-  Set the imagePullPolicy to Never, otherwise Kubernetes will try to download the image.
+<h3>Setup minikube to use local Docker images</h3>
 
-  When terraform timeout with flask app deployment. Workaround for this use case is to add wait = false to the "helm_release"
+- Set the environment variables with eval $(minikube docker-env)
+- Build the image with the Docker daemon of Minikube (eg docker build -t my-image .)
+- Set the image in the pod spec like the build tag (eg my-image)
+- Set the imagePullPolicy to Never, otherwise Kubernetes will try to download the image.
+- When terraform timeout with flask app deployment. Workaround for this use case is to add wait = false to the "helm_release"
+ 
+ <p>Run terraform in the project root with terraform apply. It will create the app deployment and add a master redis node and 2 replicas.</p>
 
-  Run terraform in the project root with terraform apply. It will create the app deployment and add a master redis node and 2 replicas.
+![image](https://user-images.githubusercontent.com/43659121/196553892-1f22439a-bf13-4571-9620-94ed20b3810c.png)
 
-<h2>How to add git commit tot the container</h2>
+
+<h3>How to add git commit tot the container</h3>
  
  ``` 
   export GIT_SHA=$(git rev-parse --short HEAD)
@@ -50,7 +53,7 @@ export KUBE_CONFIG_PATH=~/.kube/config
 ![image](https://user-images.githubusercontent.com/43659121/196551680-0d22550d-aca8-408f-8ab2-bf0c775e1a63.png)
 
 
-<p>Monitoring</p>
+<h3>Monitoring</h3>
 Run terraform apply in ./monitoring it will create a new namspace called monitoring
 
 How to expose the grafana dashboard to the localhost:
