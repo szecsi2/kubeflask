@@ -66,3 +66,10 @@ How to expose the grafana dashboard to the localhost:
 ```
 
 ![image](https://user-images.githubusercontent.com/43659121/196549799-a6f7567b-b095-41c8-8dfc-3d2964025e3b.png)
+
+How to expose alertmanager
+
+```
+kubectl port-forward --namespace monitoring svc/kube-prometheus-stackr-alertmanager 9093:9093
+```
+
