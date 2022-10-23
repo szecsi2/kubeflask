@@ -73,3 +73,6 @@ How to expose alertmanager
 kubectl port-forward --namespace monitoring svc/kube-prometheus-stackr-alertmanager 9093:9093
 ```
 
+Add triggering options to the rule: 
+
+![image](https://user-images.githubusercontent.com/43659121/197395183-24cba541-0736-4b26-bbd0-d3c76830f579.png)
