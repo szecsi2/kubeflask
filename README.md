@@ -95,3 +95,7 @@ kubectl -n minikubenamespace scale deployment nginx — replicas=0
 
 ![image](https://user-images.githubusercontent.com/43659121/197396817-45b29e23-6418-44bb-90d9-877628bbb031.png)
 
+I'm using older version of Grafana so I defined a new contact point called WebHook and a new notification policy "alert=alert"
+
+Uri for the contact point: http://deploy-flask-service.minikubenamespace:31186/alert
+ 
