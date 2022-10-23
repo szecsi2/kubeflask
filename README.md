@@ -78,3 +78,20 @@ Add triggering options to the rule:
 ![image](https://user-images.githubusercontent.com/43659121/197395183-24cba541-0736-4b26-bbd0-d3c76830f579.png)
 ![image](https://user-images.githubusercontent.com/43659121/197395982-d6647bd1-9231-42a4-95e8-ab2999dc33ec.png)
 
+Testing scale OUT process:
+
+```
+kubectl create deployment nginx --image=nginx -n minikubenamespace
+kubectl -n minikubenamespace scale deployment nginx --replicas=14
+```
+
+![image](https://user-images.githubusercontent.com/43659121/197396528-ca4dd8e7-2156-4e45-b512-88ede2dd635f.png)
+
+Scale back to 4 pods: 
+
+```
+kubectl -n minikubenamespace scale deployment nginx — replicas=0
+```
+
+![image](https://user-images.githubusercontent.com/43659121/197396817-45b29e23-6418-44bb-90d9-877628bbb031.png)
+
