@@ -76,3 +76,5 @@ kubectl port-forward --namespace monitoring svc/kube-prometheus-stackr-alertmana
 Add triggering options to the rule: 
 
 ![image](https://user-images.githubusercontent.com/43659121/197395183-24cba541-0736-4b26-bbd0-d3c76830f579.png)
+![image](https://user-images.githubusercontent.com/43659121/197395982-d6647bd1-9231-42a4-95e8-ab2999dc33ec.png)
+
